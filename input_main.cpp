@@ -1,4 +1,4 @@
-#include "input.cpp"
+#include "input.h"
 
 int main()
 {

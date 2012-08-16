@@ -8,7 +8,7 @@
 using namespace std;
 
 const int min_size = 30;
-const int max_size = 100;
+const int max_size = 200;
 
 class input
 {
@@ -21,7 +21,7 @@ protected:
 	// Roll Number variables
 	int t_branches, roll_no[min_size][max_size];
 	int roll_size[min_size], rno[max_size];
-	string branch_name[min_size], rollno[min_size];
+	string branch_name[min_size], rollno[max_size];
 	char input_file[15];
 	
 	// File variable

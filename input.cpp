@@ -71,7 +71,7 @@ void input :: roll_no_processing()	// Expanding, sorting, removing
 		}
 	}
 	infile.close();
-		
+	outfile.open("input_sorted.out");	
 	// Sorting of roll nos.
 	for(i=0;i<t_branches;i++)
 	{
@@ -95,32 +95,14 @@ void input :: roll_no_processing()	// Expanding, sorting, removing
      			j=0;
 			}
 		}
+				
+		// Writing into file(input_sorted.out)
+		outfile << roll_size[i] <<endl;
 		for(j=0; j<roll_size[i]; j++)
 		{
-			roll_no[i][j] = rno[j];
+			 outfile << rno[j] << " ";
 		}
-		
-		// Writing into file
-		outfile.open("input_sorted.out");
-		for(int m=0; m<t_branches; m++)
-		{
-			outfile << roll_size[m] <<endl;
-			for(int n=0; n<roll_size[m]; n++)
-			{
-				 outfile << roll_no[m][n] << " ";
-			}
-			outfile <<endl;
-		}
-		outfile.close();
-	}
-	
-	for(i=0;i<t_branches;i++)
-	{
-	
-		for(j=0; j<roll_size[i]; j++)
-		{
-			rno[j] = roll_no[i][j];
-		}
+		outfile <<endl;
 		
 		// Removing roll nos that are not for exam
 		for(j=0; j<roll_size[i]; j++)
@@ -143,9 +125,8 @@ void input :: roll_no_processing()	// Expanding, sorting, removing
     		 			roll_size[i]--;
     		 			//k=0;
 					}
-					j=0;
 				}
-				//j=0;
+				j--;
 			}
 		}
 		for(j=0; j<roll_size[i]; j++)
@@ -153,6 +134,7 @@ void input :: roll_no_processing()	// Expanding, sorting, removing
 			roll_no[i][j] = rno[j];
 		}
 	}
+	outfile.close();
 		
 	// Writing into file
 	outfile.open("input_processed.out");

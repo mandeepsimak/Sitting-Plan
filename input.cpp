@@ -71,7 +71,7 @@ void input :: roll_no_processing()	// Expanding, sorting, removing
 		}
 	}
 	infile.close();
-	
+		
 	// Sorting of roll nos.
 	for(i=0;i<t_branches;i++)
 	{
@@ -88,12 +88,38 @@ void input :: roll_no_processing()	// Expanding, sorting, removing
 			{
 				//rno[j+1]=0;
 				for(k=j; k<=roll_size[i]; k++) 
-     			{
+     		 	{
           			rno[k] = rno[k+1];  //shifts each element one position above
      			}
      			roll_size[i]--;
      			j=0;
 			}
+		}
+		for(j=0; j<roll_size[i]; j++)
+		{
+			roll_no[i][j] = rno[j];
+		}
+		
+		// Writing into file
+		outfile.open("input_sorted.out");
+		for(int m=0; m<t_branches; m++)
+		{
+			outfile << roll_size[m] <<endl;
+			for(int n=0; n<roll_size[m]; n++)
+			{
+				 outfile << roll_no[m][n] << " ";
+			}
+			outfile <<endl;
+		}
+		outfile.close();
+	}
+	
+	for(i=0;i<t_branches;i++)
+	{
+	
+		for(j=0; j<roll_size[i]; j++)
+		{
+			rno[j] = roll_no[i][j];
 		}
 		
 		// Removing roll nos that are not for exam
@@ -107,25 +133,27 @@ void input :: roll_no_processing()	// Expanding, sorting, removing
 			
 				for(k=0; k<roll_size[i]; k++)
 				{
-					if(rno[k] == b || rno[k] == a)
+					if(rno[k] == a || rno[k] == b)
 					{
 						//rno[j+1]=0;
 						for (int l=k; l<=roll_size[i]; l++) 
     		 			{
     		      			rno[l] = rno[l+1];  //shifts each element one position above
     		 			}
-    		 			roll_size[i] = roll_size[i]-1;
+    		 			roll_size[i]--;
+    		 			//k=0;
 					}
+					j=0;
 				}
+				//j=0;
 			}
 		}
-		
 		for(j=0; j<roll_size[i]; j++)
 		{
 			roll_no[i][j] = rno[j];
 		}
 	}
-	
+		
 	// Writing into file
 	outfile.open("input_processed.out");
 	for(int i=0; i<t_branches; i++)

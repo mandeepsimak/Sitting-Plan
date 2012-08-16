@@ -1,26 +1,26 @@
-OBJ = seat_main.o seat_functions.o 		                       		# target
-OBJ1 = input_main.o input.o
+SEAT = seat_main.o seat_functions.o 		                       		# target
+INPUT = input_main.o input.o
 CC = g++									# compiler variable
 DEBUG = -g									# debugging flag 
 CFLAGS = -Wall -c $(DEBUG)							# linking flag
 LFLAGS = -Wall $(DEBUG)					  	  # flag used in compiling and creating object files	
 
 # All targets 
-all: input run seat run1
+all: input run_input seat run_seat
 
 # target to generate executable file.
 
-input: $(OBJ1)
-	$(CC) $(LFLAGS) $(OBJ1) -o input
+input: $(INPUT)
+	$(CC) $(LFLAGS) $(INPUT) -o input
 
-seat: $(OBJ)
-	$(CC) $(LFLAGS) $(OBJ) -o seat
+seat: $(SEAT)
+	$(CC) $(LFLAGS) $(SEAT) -o seat
 
 # target to run executable file	
-run: 
+run_input: 
 	./input
 
-run1:
+run_seat:
 	./seat
 
 # dependencies of seat_main.cpp
@@ -45,4 +45,4 @@ clean:
 
 # to create tar file 	
 tar:
-	tar cfv seat.tar seat_main.o seat_functions.o
+	tar cfv seat.tar input_main.o input.o seat_main.o seat_functions.o

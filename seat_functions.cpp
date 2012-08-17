@@ -34,9 +34,9 @@ void seat_planner::exam_details()
 	getline(cin, exam_name, '\n');
 	cout<<"\n1. Enter the Name of the exam: ";
 	getline(cin, exam_name, '\n');
-	cout<<"\n2. Enter Date of the exam (eg 13-03-2012): ";
+	cout<<"\n2. Enter Date of the exam: ";
 	getline(cin, exam_date, '\n');
-	cout<<"\n3. Timing (eg 12:00pm  2:00pm): "; 
+	cout<<"\n3. Timings: "; 
 	getline(cin, exam_time, '\n');
 }
 
@@ -188,10 +188,14 @@ void seat_planner :: output()	// To display seat plan
 		{
 			if(count[i] != 0)
 			{
-				outfile<<branches[i]<<":\t"<<count[i];
+				outfile<<branches[i]<<": ";
 			}
 			if(start_rno[i] != 37657 && end_rno[i] !=0)
-				outfile<<"\tStart: "<<start_rno[i]<<"\t End: "<<end_rno[i]<<endl;
+				outfile<<"{ "<<start_rno[i]<<" to "<<end_rno[i]<<" } ";
+			if(count[i] != 0)
+			{
+				outfile<<" = "<<count[i]<<endl;
+			}
 		}
 		outfile<<"Total:\t"<<sum;
 	}

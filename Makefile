@@ -16,7 +16,7 @@ input: $(INPUT)
 seat: $(SEAT)
 	$(CC) $(LFLAGS) $(SEAT) -o seat
 
-# target to run executable file	
+# target to run executable file
 run_input: 
 	./input
 

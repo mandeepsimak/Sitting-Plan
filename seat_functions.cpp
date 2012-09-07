@@ -153,14 +153,6 @@ void seat_planner :: seat_plan()	// Allocate seats
 			
 		}
 	}
-	/*if(start_roll1 < end_roll1)        
-	{
-		fill_space(start_roll1,  end_roll1);
-	}
-	if(start_roll2 < end_roll2)
-	{
-		fill_space(start_roll2,  end_roll2);	
-	}*/	
 }
 
 void seat_planner :: output()	// To display seat plan

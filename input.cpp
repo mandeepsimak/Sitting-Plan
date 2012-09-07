@@ -12,10 +12,13 @@ void input :: room_details()	// get room details
 
 void input :: rollno_details()	// get roll no details
 {
+	string Rollno;
 	infile>>t_branches;
 	for(i=0; i<t_branches; i++)
 	{
-		infile >> branch_name[i] >> rollno[i];
+		infile >> branch_name[i];
+		//rollno[i] = infile.getline();
+		getline(infile, rollno[i], '\n');
 	}
 }
 
@@ -52,6 +55,19 @@ void input :: expand(string rno)	// process input.in file and
 void input :: roll_no_processing()	// Expanding, sorting, removing 
 								// duplicate entries
 {
+
+	outfile.open("input_rollno.out");
+	for(int i=0; i<t_branches; i++)
+	{
+		//outfile << roll_size[i] <<endl;
+		//for(int j=0; j<roll_size[i]; j++)
+		{
+			 outfile << rollno[i];// << " ";
+		}
+		outfile <<endl;
+	}
+	outfile.close();
+
 	// Writing expanded form of roll nos in file
 	outfile.open("input_expand.out");
 	for(i=0; i<t_branches; i++)

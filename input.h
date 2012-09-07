@@ -5,6 +5,8 @@
 #include <deque>
 #include <fstream>
 #include <algorithm>
+#include <string>
+#include <cstdlib>
 using namespace std;
 
 const int min_size = 30;

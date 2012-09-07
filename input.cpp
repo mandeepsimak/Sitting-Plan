@@ -1,3 +1,4 @@
+// Class member function declaration
 #include "input.h"
 
 void input :: room_details()	// get room details
@@ -24,10 +25,10 @@ void input :: rollno_details()	// get roll no details
 
 void input ::  input_in_details()	// read input(input.in) file
 {
-	cout<<"\n\t Enter input file name: ";
-	cin>>input_file;
+	//cout<<"\n\t Input file name: input.in";
+	//cin>>input_file;
 	//input_file = "input.in";
-	infile.open(input_file);//"input.in");//, ios::in, ios::out);
+	infile.open("input.in");//"input.in");//, ios::in, ios::out);
 	room_details();
 	rollno_details();
 	infile.close();
@@ -56,17 +57,17 @@ void input :: roll_no_processing()	// Expanding, sorting, removing
 								// duplicate entries
 {
 
-	outfile.open("input_rollno.out");
-	for(int i=0; i<t_branches; i++)
-	{
-		//outfile << roll_size[i] <<endl;
-		//for(int j=0; j<roll_size[i]; j++)
-		{
-			 outfile << rollno[i];// << " ";
-		}
-		outfile <<endl;
-	}
-	outfile.close();
+//	outfile.open("input_rollno.out");
+//	for(int i=0; i<t_branches; i++)
+//	{
+//		//outfile << roll_size[i] <<endl;
+//		//for(int j=0; j<roll_size[i]; j++)
+//		{
+//			 outfile << rollno[i];// << " ";
+//		}
+//		outfile <<endl;
+//	}
+//	outfile.close();
 
 	// Writing expanded form of roll nos in file
 	outfile.open("input_expand.out");
@@ -189,7 +190,7 @@ void input :: input_out_file()	// To display final o/p in file
 	outfile.close();
 }
 
-template<typename OutIter>
+template<typename OutIter>  // For expanding roll nos
 bool input :: parse_number_list_with_ranges(istream& is, OutIter out)
 {
 	int number;

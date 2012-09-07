@@ -1,3 +1,4 @@
+// For allotting seats
 #include <iostream>
 #include <fstream>
 #include <cstdlib>

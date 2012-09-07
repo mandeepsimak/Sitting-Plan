@@ -1,3 +1,4 @@
+// input.h file contains header files and class declaration.
 #include <iostream>
 #include <sstream>
 #include <iterator>
@@ -12,7 +13,7 @@ using namespace std;
 const int min_size = 30;
 const int max_size = 200;
 
-class input
+class input // For getting room and roll no details from file
 {
 protected:
 
@@ -24,7 +25,7 @@ protected:
 	int t_branches, roll_no[min_size][max_size];
 	int roll_size[min_size], rno[max_size];
 	string branch_name[min_size], rollno[max_size];
-	char input_file[15];
+	//char input_file[20];
 	
 	// File variable
 	ifstream infile;	// Read contents of file

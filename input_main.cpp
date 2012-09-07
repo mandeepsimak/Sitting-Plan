@@ -1,3 +1,4 @@
+// Main file to generate processed input as input.out file
 #include "input.h"
 
 int main()
